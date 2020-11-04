@@ -8,11 +8,11 @@ DESCRIPTION
 
     INPUTS
 
-      List of input files to be converted.
+      List of input files to be converted. If input is omitted, input is read from /dev/stdin.
 
     OUTPUTS
 
       List of JSON output files. If output omitted, output is written to /dev/stdout.
       
 FILE
-    `/usr/local/share/openfido/concatenate/__init__.py`
+    `/usr/local/share/openfido/to-json/__init__.py`
