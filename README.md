@@ -1,18 +1,18 @@
-OpenFIDO Library Documentation: to-csv
+OpenFIDO Library Documentation: to-json
 
 NAME
-    to-json - OpenFIDO CSV conversion pipeline
+    to-json - OpenFIDO JSON conversion pipeline
 
 DESCRIPTION
-    This pipeline converts the contents of the inputs to CSV and writes it to the output
+    This pipeline converts the contents of the inputs to JSON and writes it to the output
 
     INPUTS
 
-      List of input files to be converted. If input omitted, input is read from /dev/stdin
+      List of input files to be converted.
 
     OUTPUTS
 
-      List of CSV output files. If output omitted, output is written to /dev/stdout.
+      List of JSON output files. If output omitted, output is written to /dev/stdout.
       
 FILE
     `/usr/local/share/openfido/concatenate/__init__.py`
