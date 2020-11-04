@@ -4,7 +4,7 @@ This pipeline converts the contents of the input to JSON output
 
 INPUTS
 
-  List of input files to be converted.
+  List of input files to be converted. If input is omitted, input is read to /dev/stdin.
 
 OUTPUTS
 
@@ -14,7 +14,7 @@ OUTPUTS
 import os, csv, pandas, json
 def main(inputs,outputs,options):
 	if not inputs:
-		raise Exception("missing inputs")
+		inputs = ["/dev/stdin"]
 	if outputs:
 		if len(outputs) > 1 :
 			raise Exception("too many outputs")
@@ -26,6 +26,7 @@ def main(inputs,outputs,options):
 			raise Exception("missing input")
 		data = pandas.read_csv(file,header=None)
 		result.append(data)
-	result = pandas.DataFrame(pandas.concat(result)).todict()
-
+	result = pandas.DataFrame(pandas.concat(result)).values.tolist()
+	with open(outputs[0],"w") as fh:
+		json.dump(result,fh,indent=4)
 	return result
